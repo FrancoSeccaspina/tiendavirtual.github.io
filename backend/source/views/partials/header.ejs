@@ -1,0 +1,90 @@
+<header>
+    <section id="top-menu">
+        <div id="user-menu">
+                <picture id="pic-logo">
+                    <a href="/"><img src="/images/logo-ultimo.png" alt=""></a>
+                </picture>
+
+            <ul class="burger-user">
+                <% if(userLogged && userLogged.perfil == 'Admin') { %>
+                    <li class="dashboard-style"><a href="http://localhost:5000/" class="fa-solid fa-chart-line" target="_blank"><p>Dashboard</p></a></li> <!--FRONTEND-->
+                <% } %>
+            
+                <% if(userLogged) { %>
+                    <li class="user-name"><p id="name-user"><%= userLogged.fullName %></p>
+                        <a href="/profile">
+                            <img src="/images/avatars/<%= userLogged.image %>" class="userImage">
+                        </a>
+                        <!-- menu hamburguesa empieza -->
+                        <li class="hamburguer-button">
+                            <a href="#" id="btn-h"><i class="fa-solid fa-bars"></i></a>
+                        </li>
+                        <nav id="mobile-nav">
+                            <a href="/logOut" class="icons-userMenu-burger"><i class="fa-solid fa-right-from-bracket" title="LogOut"></i>Salir</a>
+                            <a href="/paginaEnConstruccion" class="icons-userMenu-burger"><i class="fa fa-envelope"></i>Contacto</a>    
+                            <div id="links-hb">
+                                <a href="https://api.whatsapp.com/send?phone=1234567891"><i class="fa-brands fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/tiendavirtual/"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="https://discord.gg/r9Ax6KU5"><i class="fa-brands fa-discord"></i></a>
+                            </div>
+                        </nav>
+                        <!-- menu hamburguesa termina -->
+                    </li>   
+                    <li class="icons-userMenu"><a href="/logOut"><i class="fa-solid fa-right-from-bracket" title="LogOut"></i></a></li>
+                <% }else{%>
+                    <!-- menu hamburguesa empieza -->
+                    <li class="hamburguer-button">
+                        <a href="#" id="btn-h"><i class="fa-solid fa-bars"></i></a>
+                    </li>
+
+                    <nav id="mobile-nav">
+                        <a href="/login" class="icons-userMenu-burger"><i class="fa-solid fa-user" title="Login"></i>Ingresar</a>
+                        <a href="/register" class="icons-userMenu-burger"><i class="fa-regular fa-id-card" title="Register"></i>Registrate</a>
+                        <a href="/paginaEnConstruccion" class="icons-userMenu-burger"><i class="fa fa-envelope"></i>Contacto</a>
+                        <div id="links-hb">
+                            <a href="https://api.whatsapp.com/send?phone=1234567891"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="https://www.instagram.com/tiendavirtual/"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://discord.gg/r9Ax6KU5"><i class="fa-brands fa-discord"></i></a>
+                        </div>
+                    </nav>
+                    <!-- menu hamburguesa termina -->
+                    <li class="icons-userMenu"><a href="/register"><i class="fa-regular fa-id-card" title="Register"></i></a></li>
+                    <li class="icons-userMenu"><a href="/login"><i class="fa-solid fa-user" title="Login"></i></a></li>
+                <% } %>
+                <li class="icons-userMenu"><a href="/carrito"><i class="fa-solid fa-cart-shopping" title="Shopping Cart"></i></a></li>
+            </ul>
+        </div>
+        
+        <div id="search-categories">
+            <ul id="category-menus">
+                <div class="category-container">
+                    <li><a href="#" id="category3"><i class="fa-solid fa-house"></i><p class="name-category">Hogar</p></a></li>
+                </div>
+                
+                <div class="category-container">
+                    <li><a href="#" id="category4"><i class="fa-solid fa-spray-can-sparkles"></i><p class="name-category">Perfumeria</p></a></li>
+                </div>    
+                    
+                <div class="category-container">
+                    <li><a href="#" id="category1"><i class="fa-solid fa-store"></i><p class="name-category">Almacen</p></a></li>
+                </div> 
+                    
+                <div class="category-container">
+                    <li><a href="#" id="category2"><i class="fa-solid fa-glass-empty"></i><p class="name-category">Bebidas</p></a></li>
+                </div>  
+                    
+                <div class="buscar">
+                    <input type="text" placeholder="Buscar" required id="search-input" />
+                    
+                    <div class="btn">
+                        <i class="fas fa-search icon"></i>
+                    </div>
+                </div>  
+            </ul>
+        </div>
+    </section>
+                    
+    <picture id="banner-image">
+        <img src="/images/imagen-banner.png" alt="">
+    </picture>          
+</header>
