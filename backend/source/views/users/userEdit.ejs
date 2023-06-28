@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/userEdit.css">
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+
+    <main>
+        <form action="/users/update/<%= user.id %>?m=PUT" method="POST" class="form-edit" id="form">
+
+            <input type="hidden" name="id" value="<%= user.id %>">
+            
+            <fieldset class="text-area">
+                <legend class="title-area">Nombre Completo</legend>
+                <input type="text" name="fullName" id="fullName" placeholder="Nombre" class="input-text" value="<%= user.fullName %>" class="e-productname">
+            </fieldset>
+            
+            <fieldset class="text-area">
+                <legend class="title-area">Nombre de Usuari@</legend>
+                <input type="text" name="user" id="user" placeholder="Nombre de Usuari@" class="input-text" value="<%= user.user %>" required>
+            </fieldset>
+            
+            <fieldset class="text-area text-area-image">
+                <img src="/images/avatars/<%= user.image %>" name="image" id="img-user" alt="<%= user.fullName %>">
+                
+                <div id="image-upload">
+                    <label for="image">Subir imagen</label>
+                    <input type="file" name="image" id="image" class="input-text">
+                </div>
+            </fieldset>
+                
+            <fieldset class="text-area">
+               <p class="title-area">Perfil</p>
+               <label for="admin" class="radio-options">
+                    <input type="radio" name="perfil" id="admin" value="Admin" <% if(user.perfil == "Admin"){ %> checked <% } %>> Admin
+               </label>
+               
+               <label for="user" class="radio-options">
+                    <input type="radio" name="perfil" id="user" value="User" <% if(user.perfil == "User"){ %> checked <% } %>>Usuario
+               </label>
+            </fieldset>
+
+            <fieldset class="text-area">
+                <label for="nacio">Fecha de Nacimiento</label>
+                <input type="date" name="birthDay" id="birthDay" class="input-text" value="1983-12-10" required />
+            </fieldset>
+
+            <button type="submit" class="input-text input-button">Guardar</button>
+            <ul class="mensajeError" id="erroresEdit"></ul>
+        </form>
+    </main>
+    
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>       
+    <script src="/js/userEdit.js"></script>
+
+    <footer class="main-footer">
+        <%- include('../partials/footer.ejs') %>
+    </footer>
+    
+</body>
+</html>

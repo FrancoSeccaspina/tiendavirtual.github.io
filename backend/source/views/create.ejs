@@ -1,0 +1,87 @@
+<head>
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="../css/create.css">
+</head>
+
+<body>
+    <%- include('../partials/header.ejs') %>
+    
+    <main>
+
+        <div class="container-all">
+
+            <form action="/products/guardar" method="POST" enctype="multipart/form-data" id="form-create">
+
+                <fieldset id="fsName" class="text-area">
+                    <% if(locals && locals.errors && errors.name) { %>
+                        <p class="feedback"><%= errors.name.msg %></p>
+                    <% } %>
+                    
+                    <legend class="title-area">Título</legend>
+                    <input type="text" name="name" id="name" placeholder="Título del producto" class="input-text" minlength="5" maxlength="50" value="<%= oldData && oldData.name ? oldData.name : '' %>">
+                </fieldset>
+                
+                <fieldset id="fsPrice" class="text-area">
+                    <% if(locals && locals.errors && errors.price) { %>
+                        <p class="feedback"><%= errors.price.msg %></p>
+                    <% } %>
+
+                    <legend class="title-area">Precio del Producto</legend>
+                    <input type="text" name="price" id="price" placeholder="$$$" class="input-text" value="<%= oldData && oldData.price ? oldData.price : '' %>">
+                </fieldset>
+                
+                <fieldset id="fsImage" class="text-area">
+                    <% if(locals && locals.errors && errors.image) { %>
+                        <p class="feedback"><%= errors.image.msg %></p>
+                    <% } %>
+                    
+                    <label for="image">Subir imagen</label>
+                    <input type="file" name="image" id="image" class="input-text">
+                </fieldset>
+                
+                <fieldset id="fsDescription" class="text-area">
+                    <% if(locals && locals.errors && errors.description) { %>
+                        <p class="feedback"><%= errors.description.msg %></p>
+                    <% } %>
+                    
+                    <legend class="title-area">Descripción del producto</legend>
+                    <input type="text" name="description" id="description" cols="30" rows="3" placeholder="Escribe descripcion del producto.." class="input-text" value="<%= oldData && oldData.description ? oldData.description: '' %>">
+                </fieldset>
+                
+                <fieldset id="fsCategory" class="text-area">
+
+                    <legend id="legCategory" class="title-area">Categoria del producto</legend>
+                  
+                    <% categories.forEach(category => { %>
+                        <label for="category-<%= category.name %>" class="radio-options">
+                            <input type="radio" name="category" id="category-<%= category.name %>" value="<%= category.id %>"><%= category.name %>
+                        </label>
+                    <% }); %>
+                </fieldset>
+                
+                <fieldset class="text-area">
+
+                    <legend class="title-area">¿En oferta?</legend>
+                    <label for="offer-si" class="radio-options">
+                        <input type="radio" name="inOffer" id="offer-si" value="1">Si
+                    </label>
+                    
+                    <label for="offer-no" class="radio-options">
+                        <input type="radio" name="inOffer" id="offer-no" value="0" checked>No
+                    </label>
+                </fieldset>
+
+                <section id="buttons">
+                    <button type="submit" class="button-c">Guardar</button>
+                    <button type="reset" class="button-c">Resetear</button>
+                    <a href="/" class="button-c">Volver</a>
+                </section>
+            </form>
+        </div>
+            
+    </main>
+
+    <footer class="main-footer">
+        <%- include('../partials/footer.ejs') %>
+    </footer>        
+</body>

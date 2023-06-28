@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/adminUser.css" />
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+    <main class="main-users">
+        <section id="users-admin">
+            <div id="h2-container">
+                <h2 id="h2-userTitle">Administración de Usuarios</h2>
+            </div>
+
+            <ul class="users-list">
+                <% users.forEach(user => { %>
+                    <li class="user-li">
+                        <h2 id="id-user" hidden><%= user.id %></h2>
+                    
+                    
+                        <a id="link-user" href="/users/detail/<%= user.id %>">
+                            <img src="/images/avatars/<%= user.image %>" id="img-user" alt="<%= user.fullName %>" />
+                    
+                            <div id="userDetail-container">
+                                <p id="userDetail"><%= user.email %></p>
+                            </div>
+                        </a>
+                    </li>
+                <% }); %>
+            </ul>
+        </section>
+    </main>
+         
+    <footer>
+        <%- include('../partials/footer.ejs') %>
+    </footer>              
+</body>
+</html>
