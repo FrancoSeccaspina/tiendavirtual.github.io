@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/register.css" />
+    <link rel="import" href="">
+</head>
+<body>
+    <%- include('./partials/header.ejs') %>
+
+    <main class="mainRegister">
+
+        <h2 id="h2-register">Registrate</h2>
+
+        <form action="/register/save" method="POST" id="form-register" enctype="multipart/form-data">
+
+            <input type="text" name="fullName" id="fullName" class="inputs-register" placeholder="Nombre y Apellido" value="<%= oldData && oldData.fullName ? oldData.fullName : '' %>" required>
+
+            <input type="text" name="user" id="user" placeholder="Nombre de Usuari@" itemid="nombreUsuari@" class="inputs-register" value="<%= oldData && oldData.user ? oldData.user : '' %>" required>
+
+            <% if(locals && locals.errors && errors.email) { %>
+                <p class="feedback"><%= errors.user.msg %></p>
+            <% } %>
+
+            <input type="date" name="birthDay" id="birthDay" class="inputs-register" value="<%= oldData && oldData.birthDay ? oldData.birthDay : '' %>" required />
+
+            <input type="password" name="password" placeholder="contraseña" id="password" class="inputs-register" value="<%= oldData && oldData.password ? oldData.password : '' %>" required>
+
+            <% if(locals && locals.errors && errors.password) { %>
+                <p class="feedback"><%= errors.password.msg %></p>
+            <% } %>
+
+            <input type="file" name="image" id="image" class="inputs-register">
+
+            <button id="button-register" type="submit">Registrarse</button>
+
+            <ul class="mensajeError" id="erroresRegister"></ul>
+        </form>
+    </main>
+
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script src="../js/register.js"></script>
+
+    <footer id="register-footer">
+        <%- include('./partials/footer.ejs') %>
+    </footer>
+
+</body>
+</html>

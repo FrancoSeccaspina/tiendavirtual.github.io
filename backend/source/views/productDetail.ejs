@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/productDetail.css" />
+</head>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <main>
+
+        <div id="main-content">
+            <div class="container-image">
+                <img src="../../images/<%= product.image %>" alt="<%= product.name %>" class="img-juego" />
+            </div>
+
+            <div class="main-description">
+                <section class="section-description">
+                    <div class="description">
+                        <h2 id="title-item">Descripción del producto</h2>
+                        <p><%= product.description %></p>
+                    </div>
+                </section>
+                
+                <section class="list-products">
+                    <ul class="lista-description">
+                        <li>Productos originales</li>
+                        <li>Fecha de vencimiento en el dorso</li>
+                        <li>Precios justos</li>
+                        <li style="color: #d8d8d8; font-weight: 700;">>Entrega inmediata</li>
+                    </ul>
+                    <div class="price-content">
+                        <div class="precios">
+                            <span class="precio-ahora">$<%=(product.price - (product.price * 0.1)) %></span>
+                            <span class="precio-anterior">$<%= product.price %></span>
+                        </div>
+                        
+                        <form class="cantidadProductos">
+                            <select name="quantity-items" id="quantity-items">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                                <option value="">4</option>
+                                <option value="">5</option>
+                                <option value="">6</option>
+                                <option value="">7</option>
+                                <option value="">8</option>
+                                <option value="">9</option>
+                                <option value="">10</option>
+                            </select>
+                            <a href="/carrito" class="crear">Comprar<i class="fa-solid fa-cart-shopping"></i></a>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+        <% if(userLogged && userLogged.perfil == 'Admin') { %>    
+            <ul class="botones">
+                <a href="/products/create" class="crear-editar">CREAR</a>
+                <a href="/products/edit/<%= product.id %>" class="crear-editar">EDITAR</a>
+                
+                <form action="/products/delete/<%= product.id %>?m=DELETE" method="POST">
+                    <button type="submit" name="id" value="<%= product.id %>" class="borrarBorde">
+                        <a href="eliminar">ELIMINAR<i class="fa-solid fa-trash"></i></a>    
+                    </button>    
+                </form>
+            </ul>
+        <% } %>   
+    </main>
+
+    <footer>
+        <%- include('./partials/footer.ejs') %>
+    </footer>
+</body>
+</html>
