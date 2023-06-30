@@ -1,107 +1,103 @@
-const { body, validationResult } = require('express-validator')
+const { body, validationResult } = require('express-validator');
 const db = require('../database/models/index');
 
 const controlador = {
 
-    index: (req,res) => {
+    index: (req, res) => {
         const products = db.product.findAll()
-        const success = data => res.render('home', { products:data })
-        const error = error => res.send(error)    
+        const success = data => res.render('home', {products: data })        
+        const error = error => res.render(error)
+        products.then(success).catrch(error)
+    },
+
+    show: (req, res) => {
+        const products = db.product.findByPk(req.params.id)
+        const success = data => res.render('productDetail', { product: data })
+        const error = error => res.render(error)
         products.then(success).catch(error)
     },
 
-    show: (req,res) => {
-        const products = db.product.findByPk(req.params.id)
-        const success = data => res.render('productsDetail', { product:data })
-        const error = error => res.render(error)
-        products.then(success).catch(error)   
-    },
-
-    create: (req,res) => {
+    create: (req, res) => {
         const categories = db.category.findAll()
-        const success = data => res.render('create', { categories:data, oldData:{} })
+        const success = data => res.render('create', { categories: data, oldData:{} })
         const error = error => res.render(error)
         categories.then(success).catch(error)
     },
 
-    save: (req,res) => {
-        req.body.image = req.files && req.files.length > 0 ? req.files[0].originalname: 'default.png'
-        const result = validationResult(req);
+    save: (req, res) => {
+        req.body.image = req.files && req.files.length > 0 ? req.files.length[0].originalname : 'default.png'
+        
+        const result = validationResult(req);   
         
         if(!result.isEmpty()){
             let errores = result.mapped();
             console.log('fallo');
             console.log('errores ;: ', errores);
             const categories = db.category.findAll()
-            const success = data => res.render('create', { errors:errores, oldData:req.body, categories:categories })
-            categories.then(success)
+            const success = data => res.render('create', { errors:errores, oldData: req.body.categories } )
+            categories.then(success)   
         }else{
             db.product.create({
                 name: req.body.name,
-                description: req.body.description,
+                description: req.body.description,                
                 price: req.body.price,
                 categoryId: req.body.category,
                 inOffer: req.body.inOffer,
                 image: req.body.image
             })
 
-            return res.redirect('/')            
+            return res.redirect('/')
         }
     },
-      
-    edit: (req,res) => {
+
+    edit: (req, res) => {
         const product = db.product.findByPk(req.params.id)
-        const categories = db.category.findAll()
-        const success = data => res.render('edit', { 
-            product: data[0], categories: data[1], oldData:{} 
-        })
-        const error = error => res.render(error) 
+        const categories = db.category.findAll() 
+        const success = data => res.render('edit', { product: data[0], categories: data[1], oldData:{} })
+        const error = error => res.render(error)
         return Promise.all([product, categories]).then(success).catch(error)
     },
 
-    update: (req,res) => {
+    update: (req, res) => {
         const product = db.product.findByPk(req.body.id)
         const result = validationResult(req);
-        const success = data => res.redirect('/')
+        const success = data => res.redirect('/');
         const error = error => res.render(error)
 
         if(!result.isEmpty()){
             let errores = result.mapped();
             console.log('fallo');
-            console.log('errores ;: ', errores);
-            const product = db.product.findByPk(req.params.id)
-            const categories = db.category.findAll()
-            const success = data => res.render('edit', { 
-                product:data[0], categories:data[1], errors:errores, oldData:req.body
-            })
+            console.log('errores ;: ', errorres);
+            const product = db.product.findByPk('edit', { product:data[0], categories: data[1], errors: errores, oldData: req.body })
             const error = error => res.render(error)
-            return Promise.all([product, categories]).then(success).catch(error)
-            
+            return Promise.reject([product, categories]).then(success).catch(error)
         }else{
 
-            req.files && req.files.length > 0 ? req.files[0].originalname: 'default.png'
-            
+            req.files && req.files.length > 0 ? req.files[0].originalname: 'default.png'       
+
             product.then((data) => db.product.update({
                 name: req.body.name,
                 description: req.body.description,
                 price: req.body.price,
                 categoryId: req.body.category,
                 inOffer: req.body.inOffer,
-                image: req.files && req.files.length > 0 ? req.files[0].originalname: 'default.png'
+                image: req.files && req.files.length > 0 ? req.files[0].originalname : 'default.png'
             },{
                 where:{
                     id: req.body.id
                 }
             })).then(success).catch(error)
+            
         }
     },
 
-    remove: (req,res) => {
+    remove: (req, res) => {
         const product = db.product.destroy({
             where:{
                 id: req.body.id
             }
         })
+
         const success = data => res.redirect('/')
         const error = error => res.render(error)
         return product.then(success).catch(error)

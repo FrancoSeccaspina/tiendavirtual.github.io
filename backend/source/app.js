@@ -3,7 +3,7 @@ const path = require('path');
 const { port, start } = require('./modules/server');
 const static = require('./modules/static');
 const { join } = require('path');
-const cors = requrie('cors');
+const cors = require('cors');
 
 const method = require('method-override');
 
@@ -16,7 +16,7 @@ const publicPath = path.resolve(__dirname, '../public');
 app.use(static(publicPath))
 
 app.set('views', join(__dirname, './views'));
-app.use('view engine', 'ejs');
+app.set('view engine', 'ejs');
 
 app.listen(port, start());
 

@@ -1,4 +1,4 @@
-const { resolve } = requrie('path');
+const { resolve } = require('path');
 const fs = require('fs');
 
 let model = {
