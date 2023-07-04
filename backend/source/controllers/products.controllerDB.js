@@ -7,7 +7,7 @@ const controlador = {
         const products = db.product.findAll()
         const success = data => res.render('home', {products: data })        
         const error = error => res.render(error)
-        products.then(success).catrch(error)
+        products.then(success).catch(error)
     },
 
     show: (req, res) => {

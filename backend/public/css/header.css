@@ -1,0 +1,311 @@
+header{
+    background-color: rgb(248, 248, 248);
+}
+
+#pic-logo{
+    width: 20%;
+}
+
+#pic-logo img{
+    width: 100%;
+}
+
+#user-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 1rem 0;
+}
+
+#btn-h{
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+.icons-userMenu-burger{
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.icons-userMenu-burger i {
+    color: white;
+    margin-right: 5px;
+}
+
+#mobile-nav{ /*Ver que donde se aplica el color verde*/
+    position: fixed;
+    top: 25vh;
+    left: 0;
+    height: 23vh;
+    width: 100vw;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    background-color: chartreuse;
+    color: white;
+    border-bottom: 1px solid chartreuse;
+    z-index: 0;
+    padding: 1rem;
+    transition: all 0.3s ease-out;
+    transform: translateX(-200%);
+}
+
+#mobile-nav.active{
+    transform: translateX(0);
+    transition: all 0.5s ease-out;
+}
+
+#links-hb{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    align-items: center;
+}
+
+#links-hb a {
+    color: red;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    background-color: white;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-style{
+    margin-right: 2rem;
+    cursor: pointer;
+}
+.dashboard-style a{
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-right: 5px;
+}
+.dashboard-style p {
+    margin-left: 5px;
+    color: white;
+    font-weight: 600;
+}
+.dashboard-style:hover p{
+    color: chartreuse;
+    transition-property: color;
+    transition-duration: 0.5s;
+}
+.dashboard-style:hover a{
+    color: chartreuse;
+    transition-property: color;
+    transition-duration: 0.5s;
+}
+
+.icons-userMenu{
+    display: none;
+}
+.icons-userMenu a{
+    text-decoration: none;
+    text-shadow: 0 0 1px rgb(106, 106, 106);
+}
+
+.burguer-user a:hover{
+    color: chartreuse;
+    transition-property: color;
+    transition-duration: 0.3s;
+}
+
+#category-menus{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 5rem;
+    background-color: rgb(211, 211, 211);
+    padding: 1rem;
+}
+#category-menus a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.buscar{
+    position: relative;
+    padding: 5px;
+}
+
+.buscar input{
+    width: 0;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 18px;
+    color: #222;
+    border: 1px solid silver;
+    border-radius: 30px;
+    transition: all 0.6s ease;
+}
+
+.btn{
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    top: -5px;
+    right: 0;
+    position: absolute;
+    background: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+}
+.buscar:hover input{
+    width: 15rem;
+}
+.buscar input:active{
+    width: 1rem;
+}
+
+.user-name{
+    display: flex;
+    margin-right: 10px;
+    align-items: center;
+}
+
+.user-image{
+    border: transparent;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+}
+
+.burger-user{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.burger-user li{
+    list-style-type: none;
+}
+.hamburguer-button{
+    font-size:2rem;
+}
+
+#name-user{
+    color: white;
+    margin-right: 5px;
+}
+
+.name-category{
+    display: none;
+}
+
+.category-container{
+    display: flex;
+    height: 2rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(241, 241, 241);
+}
+.category-container li{
+    margin-right: 5px;
+    list-style-type: none;
+}
+.category-container p {
+    margin-left: 5px;
+    color: rgb(0, 0, 0);
+    transition: 0.3s;
+}
+.category-container a{
+    display: flex;
+}
+.category-container li a:hover p, .category-container:hover a:hover i{
+    color: rgb(0, 60, 255);
+    transition-property: color;
+    transition-duration: 0.3s;
+}
+
+#banner-image{
+    display: none;
+}
+
+@media screen and (min-width:0px) and (max-width:767px)  {
+    .dashboard-style p {
+        display: none;
+    }
+    .dashboard-style a{
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width:768px) {
+    #mobile-nav{
+        display: none;
+    }
+    .icons-userMenu{
+        display: block;
+        padding: 10px;
+    }
+    .icons-userMenu a{
+        color: #707070;
+        text-shadow: 1px 1px 1px black;
+    }
+    .burger-user li {
+        font-size: 23px;
+    }
+    i.fa-solid.fa-house, i.fa-solid.fa-spray-can-sparkles, i.fa-solid.fa-store, i.fa-solid.fa-bottle-water{
+        transition: 0.3s;
+    }
+    #pic-logo{
+        width: 5%;
+    }
+    .name-category{
+        display: block;
+    }
+    .hamburguer-button{
+        display: none;
+    }
+    .category-container{
+        width: 10rem;
+        border-radius: 5px;
+    }
+    .buscar:hover input{
+        width: 14rem;
+    }
+    #banner-image{
+        display: block;
+        width: 100%;
+    }
+    #banner-image img{
+        display: inline-block;
+        width: 100%;
+        height: 14rem;
+    }
+}
+
+@media screen and(min-width:1024px) {
+   .buscar:hover input{
+        width: 25rem;
+   }
+   #user-menu{
+        margin: 1rem 5rem 0;
+   }
+   #category-menus{
+    padding: 1rem 5rem;
+   }
+}
+
+@media screen and (min-width:1440px) {
+    header p{
+        font-size: 18px;
+    }
+    header li{
+        font-size: 18px;
+    }
+    .btn{
+        width: 60px;
+        height: 60px;
+        line-height: 65px;
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,129 @@
+footer{
+    background-color: rgb(248, 248, 248);
+}
+
+.main-footer{
+    width: 100%;
+    background-color: rgb(248, 248, 248);
+}
+
+.links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 2rem;
+}
+
+.logo-footer{
+    width: 10vw;
+}
+
+.lista-footer{
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    height: 11rem;
+    justify-content: center;
+}
+.lista-footer a{
+    color: black;
+    font-size: 14px;
+    text-decoration: revert;
+    transition: 0.3s;
+}
+.lista-footer a:hover{
+    color: rgb(0, 60, 255);
+    transition: color 0.3s;
+}
+.lista-footer p {
+    font-weight: 700;
+    color: black;
+}
+
+.Title-social{
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+}
+
+.lista-footer li{
+    margin-top: 1rem;
+}
+
+.icons-footer{
+    display: flex;
+    flex-direction: column;
+    height: 11rem;
+    justify-content: center;
+}
+.icons-footer a{
+    color: black;
+    padding: 3px;
+    display: flex;
+    margin-top: 1rem;
+    max-width: min-content;
+    transition: 0.3s;
+}
+.icons-footer a p{
+    color: black;
+    font-size: 14px;
+    padding-left: 3px;
+    transition: 0.3s;
+}
+.icons-footer a:hover, .icons-footer a:hover p{
+    color: rgb(0, 60, 255);
+    transition-property: color;
+    transition-duration: 0.3s;
+}
+
+.content{
+    background-color: rgb(246, 246, 246);
+}
+
+.btn-wsp{
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    bottom: 15px;
+    right: 15px;
+    background-color: #0df053;
+    color: var(--whiteLetter);
+    border-radius: 50px;
+    text-align: center;
+    font-size: 40px;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.3);
+    z-index: 100;
+    transition: 0.3s;
+}
+.btn-wsp:hover{
+    text-decoration: none;
+    color: #0df053;
+    background-color: var(--white);
+    transition-property: color, background-color ;
+    transition-duration: 0.3s;
+}
+
+.contact-location{
+    display: none;
+    width: 10rem;
+}
+.contact-location li{
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    list-style-type: none;
+}
+.contact-location p{
+    font-size: 12px;
+    margin-left: 5px;
+    color: white;
+}
+.contact-location i{
+    color: black;
+}
+.contact-location li:hover i{
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s;
+}

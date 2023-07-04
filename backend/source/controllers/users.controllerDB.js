@@ -155,7 +155,7 @@ const controlador = {
     
     logout: (req,res) => {
         delete req.session.user
-        res.cookie('user', req.body,email, { maxAge:-1 })
+        res.cookie('user', req.body.email, { maxAge:-1 })
         return res.redirect('/')
     },
 

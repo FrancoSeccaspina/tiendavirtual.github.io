@@ -4,7 +4,7 @@
     <%- include('./partials/head.ejs') %>
 </head>
 <body>
-    <%- include('./partialsa/header.ejs') %>
+    <%- include('./partials/header.ejs') %>
     
     <main class="main-content">
 
@@ -15,13 +15,11 @@
 
         <div class="container-allmain">
             <% products.forEach(element => { %>
-                <a href="/products/detail/<%= element.id %>"></a>
+                <a href="/products/detail/<%= element.id %>">
                 <div class="productos list-group-item p-3">
-                    <picture><img src="images/<%= element.image %>" alt="<%= element.description %>" /></picture>
-                </div>
-                
+                    <picture><img src="images/<%= element.image %>" alt="<%= element.description %>" /></picture> 
                 <div class="informacion">
-                    <span class="tip-envio">En stock</span>
+                    <span class="tipo-envio">En stock</span>
                     <div class="container-prices">
                         <span class="precio-ahora">$<%= (element.price - (element.price * 0.1)) %></span>
                         <span class="precio-anterior">$<%= element.price %></span>
@@ -32,8 +30,9 @@
                     <input type="text" name="categoryId" id="categoryId" hidden value="<%= element.categoryId %>"> 
                 </div>
             </div>
-
+        </a>
         <% }); %>
+    </div>
     </main>
 
     <% if(userLogged && userLogged.perfil == 'Admin') { %>

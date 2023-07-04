@@ -7,7 +7,7 @@ let middleware = (req,res,next) => {
     if(req.cookie && req.cookie.user){
         const user = db.user.findOne({
             where:{
-                email: req.cookie.user
+                email: req.cookies.user
             }
         })
         console.log(user)

@@ -18,9 +18,15 @@
 
             <input type="text" name="user" id="user" placeholder="Nombre de Usuari@" itemid="nombreUsuari@" class="inputs-register" value="<%= oldData && oldData.user ? oldData.user : '' %>" required>
 
-            <% if(locals && locals.errors && errors.email) { %>
+            <% if(locals && locals.errors && errors.user) { %>
                 <p class="feedback"><%= errors.user.msg %></p>
             <% } %>
+
+            <input type="email" name="email" placeholder="Correo electronico" id="email" class="inputs-register" value="<%= oldData && oldData.email ? oldData.email: ' ' %>" required>
+                
+                <% if(locals && locals.errors && errors.email) { %>
+                    <p class="feedback"><%= errors.email.msg %></p>
+                <% } %>
 
             <input type="date" name="birthDay" id="birthDay" class="inputs-register" value="<%= oldData && oldData.birthDay ? oldData.birthDay : '' %>" required />
 

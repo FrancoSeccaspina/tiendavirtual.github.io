@@ -1,6 +1,6 @@
 const model = function(sequelize, DataTypes){
 
-    let alias = 'sjopping'
+    let alias = 'shopping'
     let cols = {
 
         id:{
