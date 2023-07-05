@@ -41,6 +41,7 @@ header{
     width: 100vw;
     display: flex;
     align-content: center;
+    gap: 1.3rem;
     flex-direction: column;
     background-color: chartreuse;
     color: white;
@@ -79,24 +80,24 @@ header{
     margin-right: 2rem;
     cursor: pointer;
 }
-.dashboard-style a{
+.dashboard-style a {
     display: flex;
     align-items: center;
-    color: white;
+    color: black;
     margin-right: 5px;
 }
 .dashboard-style p {
     margin-left: 5px;
-    color: white;
+    color: rgb(0, 0, 0);
     font-weight: 600;
 }
 .dashboard-style:hover p{
-    color: chartreuse;
+    color: rgb(0, 89, 255);
     transition-property: color;
     transition-duration: 0.5s;
 }
 .dashboard-style:hover a{
-    color: chartreuse;
+    color: rgb(0,89,255);
     transition-property: color;
     transition-duration: 0.5s;
 }
@@ -106,6 +107,7 @@ header{
 }
 .icons-userMenu a{
     text-decoration: none;
+    color: #222;
     text-shadow: 0 0 1px rgb(106, 106, 106);
 }
 
@@ -150,9 +152,12 @@ header{
     line-height: 55px;
     top: -5px;
     right: 0;
+    display: flex;
     position: absolute;
     background: rgb(0, 0, 0);
     text-align: center;
+    justify-content: center;
+    align-items: center;
     font-size: 18px;
     border-radius: 50%;
     cursor: pointer;
@@ -171,8 +176,8 @@ header{
     align-items: center;
 }
 
-.user-image{
-    border: transparent;
+.userImage{
+    border: 2px solid black;
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
@@ -236,6 +241,11 @@ header{
     .dashboard-style a{
         font-size: 18px;
     }
+    .btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media screen and (min-width:768px) {
@@ -251,7 +261,7 @@ header{
         text-shadow: 1px 1px 1px black;
     }
     .burger-user li {
-        font-size: 23px;
+        font-size: 12px;
     }
     i.fa-solid.fa-house, i.fa-solid.fa-spray-can-sparkles, i.fa-solid.fa-store, i.fa-solid.fa-bottle-water{
         transition: 0.3s;
@@ -281,6 +291,11 @@ header{
         width: 100%;
         height: 14rem;
     }
+    .btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media screen and(min-width:1024px) {
@@ -293,6 +308,11 @@ header{
    #category-menus{
     padding: 1rem 5rem;
    }
+   .btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 }
 
 @media screen and (min-width:1440px) {
@@ -303,9 +323,13 @@ header{
         font-size: 18px;
     }
     .btn{
-        width: 60px;
-        height: 60px;
-        line-height: 65px;
-        font-size: 20px;
+        width: 69px;
+        height: 69px;
+        line-height: 71px;
+        font-size: 20px; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
     }
 }

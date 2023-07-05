@@ -145,15 +145,15 @@ main{
 }
 
 .botones{
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid rgb(255, 255, 255);
     display: flex;
     justify-content: space-evenly;
-    background-color: black;
+    background-color: rgb(148, 148, 148);
 }
 .botones a{
     text-align: center;
     color: var(--whiteLetter);
-    background-color: black;
+    background-color: rgb(158, 158, 158);
 }
 .botones form{
     text-align: center;
@@ -170,7 +170,7 @@ main{
     cursor: pointer;
 }
 .botones a:hover{
-    color: rgb(0, 85, 255);
+    color: rgb(0, 0, 0);
     transition: color 0.3s;
 }
 

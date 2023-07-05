@@ -1,0 +1,15 @@
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback{
+    color: red;
+}
+
+.title-area{
+    color: #dddddd;
+    font-weight: 600;
+    font-size: 1.5rem;
+    width: 100%;
+}
