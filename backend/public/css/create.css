@@ -13,3 +13,68 @@ form{
     font-size: 1.5rem;
     width: 100%;
 }
+
+.input-text{
+    color: white;
+    background-color: rgba(16, 16, 16, .4);
+    width: 80%;
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: inset 0 0 0 2px rgb(54, 54, 54);
+    border-radius: 8px;
+    outline: none;
+}
+
+.text-area{
+    margin: 1rem 0;
+    padding: 1rem;
+    border-bottom:1px solid rgb(135, 135, 135);
+}
+
+.text-area label{
+    font-weight: 600;
+    color: white;
+    margin: 1rem 0;
+    margin-left: 3%;
+}
+
+#buttons{
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid rgb(135, 135, 135);
+}
+
+button{
+    border-right: 1px solid black;
+}
+
+.button-c{
+    text-align: center;
+    width: 100%;
+    font-size: 1rem;
+    color: white;
+    background-color: rgb(148, 148, 148);
+    padding: 1.3rem;
+    border-right: 1px solid rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+@media screen and (min-width:1024px) {
+    form{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .text-area{
+        width: 30rem;
+    }
+    .text-area label{
+        margin-left: 5%;
+    }
+}
+
+@media screen and (min-width:1440px) {
+    .container-all{
+        padding: 2rem 2rem 0;
+    }
+}

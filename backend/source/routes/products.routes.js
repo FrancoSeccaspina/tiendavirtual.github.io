@@ -30,7 +30,7 @@ const isAdmin = require('../middlewares/isAdmin');
 const isProduct = require('../validations/productCreate');
 const isProductEdit = require('../validations/productEdit');
 
-route.get('/peoducts/create', isLogged, isAdmin, productsController.create);
+route.get('/products/create', isLogged, isAdmin, productsController.create);
 
 route.post('/products/guardar', upload.any(), isLogged, isProduct, productsController.save);
 

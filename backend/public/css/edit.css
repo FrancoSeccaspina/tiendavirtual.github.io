@@ -1,0 +1,106 @@
+body{
+    background-color: #dadada;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.title-area{
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.text-area{
+    display: flex;
+    flex-direction: column;
+}
+.text-area label{
+    color: #000000;
+}
+
+.input-text{
+    color: white;
+    background-color: rgba(16, 16, 16, .4);
+    width: 80%;
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: inset 0 0 0 2px rgb(54, 54, 54);
+    border-radius: 8px;
+    outline: none;
+}
+
+#container-image{
+    display: flex;
+    flex-direction: column;
+}
+
+.image-edit{
+    width: 10rem;
+    margin-left: 1rem;
+}
+
+#image{
+    margin-bottom: 1rem;
+    color: rgb(0, 0, 0);
+    margin-left: 2%;
+}
+
+fieldset{
+    padding: 0rem 2rem;
+    border-bottom: 1px solid rgb(135, 135, 135);
+    margin: 1rem 0;
+}
+
+.radio-options{
+    margin-bottom: 0.5rem;
+}
+
+button{
+    border-right: 1px solid rgb(233, 233, 201);
+}
+
+#buttons{
+    width: 100%;
+    display: flex;
+}
+
+.button-c{
+    text-align: center;
+    width: 100%;
+    font-size: 1rem;
+    color: white;
+    background-color: rgb(148, 148, 148);
+    padding: 1.3rem;
+    border-right: 1px solid rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+@media screen and (min-width:1024px) {
+    form{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    fieldset{
+        width: 30rem;
+    }
+    #image{
+        margin: 0%;
+    }
+}
+
+@media screen and (min-width:1440px) {
+    .container-all{
+        padding: 2rem 15rem;
+    }
+
+    #container-image {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
